@@ -34,12 +34,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">{CodeRippa}</a>
+					<%= link_to "{CodeRippa}", root_path, :class => "brand" %>
           <div class="container nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Documentation", "/path1"  %></li>
-                <li><%= link_to "Get Code", "/path2"  %></li>
-                <li><%= link_to "About", "/path3"  %></li>
+	            <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Instructions", instructions_path %></li>
+              <li><%= link_to "Get the code", "https://github.com/benjamintanweihao/CodeRippa"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
