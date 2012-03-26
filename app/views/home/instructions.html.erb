@@ -1,50 +1,253 @@
-<div class="content">
-	<h1 class="title">Instructions</h1>
-	
-	<div class="row instructions">
-    <div class="span4">
-			<h2>Step 1</h2>
-			<p>
-				<h4>Pre-installation checklist:</h4>
-				Please make sure you have the following installed.
-				<ol>
-					<li>Ruby 1.9.x</li>
-					<li>pdflatex</li>
-				<ol>
-			</p>
-		</div>
-		<div class="span4">
-			<h2>Step 2</h2>
-			<p>
-				<h4>Install the gem</h4>
-				From the terminal, do the usual:<br/>
-				<code lang="ruby">gem install code-rippa</code>
-			</p>
-		</div>
-	
-		<div class="span4">
-			<h2>Step 3</h2>
-			<p>
-				<h4>Start Rippin'!</h4>
-				Once the install completes:
-				<ol>
-					<li>
-						<code>
-							code-rippa SRC_DIR_PATH
-						</code>
-					</li>
-					<li>
-						<code>
-						pdflatex out.tex
-						</code>
-					</li>
-					<li>
-						open
-						<code> out.pdf</code>
-						in your favorite pdf viewer/tablet
-					</li>
-				</ol>
-			</p>
-		</div>
-	</div>
-</div>
+
+<h1>
+CodeRippa
+</h1>
+
+<p>
+CodeRippa takes your source code and turns it into a beautiful PDF file. Currently, it supports 150 languages and 15 themes, all of which are available in TextMate. More syntax and themes will be available soon.
+</p>
+
+<h2>
+Installation
+</h2>
+
+<p>
+Add this line to your application's Gemfile:
+</p>
+
+<pre>
+
+<code>
+$ gem 'code_rippa'
+
+</code>
+
+</pre>
+
+<p>
+And then execute:
+</p>
+
+<pre>
+
+<code>
+$ bundle
+
+</code>
+
+</pre>
+
+<p>
+Or install it yourself as:
+</p>
+
+<pre>
+
+<code>
+$ gem install code_rippa
+
+</code>
+
+</pre>
+
+<h2>
+Usage
+</h2>
+
+<h3>
+Command line options
+</h3>
+
+<pre>
+
+<code>
+Usage: code_rippa [options] file_or_directory
+    -l, --list-themes                List all available themes
+    -t, --theme THEME                Selected theme
+    -n, --list-syntax                List all available syntax
+    -s, --syntax SYNTAX              Selected syntax
+    -x, --excluded-exts E1,E2,EN     Exclude these extensions when processing
+    -h, --help                       Display this screen
+</code>
+
+</pre>
+
+<h3>
+List all available themes
+</h3>
+
+<pre>
+
+<code>
+$ code_rippa -l
+
+active4d
+all_hallows_eve
+amy
+moc
+twilight
+zenburnesque
+... omitted
+
+</code>
+
+</pre>
+
+<h3>
+List all supported syntax
+</h3>
+
+<pre>
+
+<code>
+$ code_rippa -n
+
+actionscript
+erlang
+java
+javascript
+prolog
+ruby
+yaml
+... omitted
+
+</code>
+
+</pre>
+
+<h3>
+Producing PDF from a single file
+</h3>
+
+<p>
+Example:
+</p>
+
+<pre>
+
+<code>
+$ code_rippa -s ruby -t zenburnesque path_to_single_file.rb
+
+</code>
+
+</pre>
+
+<p>
+Note that the output file is saved as 
+<em>
+out.tex
+</em>
+ in the current directory where 
+<em>
+code_rippa
+</em>
+ was called from. 
+</p>
+
+<pre>
+
+<code>
+$ pdflatex out.tex         # Saved as out.pdf
+
+</code>
+
+</pre>
+
+<h3>
+Producing PDF from a directory
+</h3>
+
+<p>
+Example:
+</p>
+
+<pre>
+
+<code>
+$ code_rippa -s java -t moc path_to_directory
+
+</code>
+
+</pre>
+
+<p>
+Note that the output file is saved as 
+<em>
+out.tex
+</em>
+ in the current directory where 
+<em>
+code_rippa
+</em>
+ was called from. 
+</p>
+
+<p>
+Then, you'll need to run 
+<em>
+pdflatex
+</em>
+ 
+<strong>
+twice
+</strong>
+. This is because LaTeX needs to generate the bookmarks.
+</p>
+
+<pre>
+
+<code>
+$ pdflatex out.tex         # Saved as out.pdf
+$ pdflatex out.tex         # Remember to run this twice!
+
+</code>
+
+</pre>
+
+<p>
+Note: In case your system doesn't have 
+<code>
+pdflatex
+</code>
+, you can get a 
+<a href="http://www.tug.org/texlive/">
+LaTeX
+</a>
+ distribution.
+</p>
+
+<h2>
+Credits
+</h2>
+
+<p>
+None of this would be possible without the awesome 
+<a href="https://github.com/giom/ultraviolet">
+ultraviolet
+</a>
+ and 
+<a href="https://github.com/spox/ultraviolet">
+spox-ultraviolet
+</a>
+ and  
+<a href="https://github.com/github/linguist">
+linguist
+</a>
+ gems. Props to 
+<a href="https://github.com/lwheng">
+
+<strong>
+lwheng
+</strong>
+
+</a>
+ for providing most of the LaTeX help.
+</p>
+
+<h2>
+Contributing
+</h2>
+
+<p>
+Currently this gem is in its infancy. Any bug reports and feature requests are very welcomed.
+</p>
