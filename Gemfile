@@ -15,7 +15,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'newrelic_rpm'
 
 group :test do
   # Pretty printed test output
